@@ -1,9 +1,10 @@
 package Characters;
 
-import LogicalGame.GameObject;
+import LogicalGame.Character;
 
-public class Dionysus extends GameObject {
-    protected Dionysus(int heatPoints, int powerPoints) {
-        super(heatPoints, powerPoints);
+public class Dionysus extends Character {
+
+    public Dionysus() {
+        super("Дионис", 100, 20, 10);
     }
 }

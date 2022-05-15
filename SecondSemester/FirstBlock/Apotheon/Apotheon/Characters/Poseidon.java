@@ -1,9 +1,10 @@
 package Characters;
 
-import LogicalGame.GameObject;
+import LogicalGame.Character;
 
-public class Poseidon extends GameObject {
-    protected Poseidon(int heatPoints, int powerPoints) {
-        super(heatPoints, powerPoints);
+public class Poseidon extends Character {
+
+    public Poseidon() {
+        super("Посейдон", 100, 20, 10);
     }
 }

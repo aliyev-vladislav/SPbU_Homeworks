@@ -1,9 +1,10 @@
 package Characters;
 
-import LogicalGame.GameObject;
+import LogicalGame.Character;
 
-public class Hermes extends GameObject {
-    protected Hermes(int heatPoints, int powerPoints) {
-        super(heatPoints, powerPoints);
+public class Hermes extends Character {
+
+    public Hermes() {
+        super("Гермес", 100, 20, 10);
     }
 }

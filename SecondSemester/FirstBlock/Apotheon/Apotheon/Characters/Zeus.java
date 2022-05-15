@@ -1,9 +1,10 @@
 package Characters;
 
-import LogicalGame.GameObject;
+import LogicalGame.Character;
 
-public class Zeus extends GameObject {
-    protected Zeus(int heatPoints, int powerPoints) {
-        super(heatPoints, powerPoints);
+public class Zeus extends Character {
+
+    public Zeus() {
+        super("Зевс", 100, 20, 10);
     }
 }

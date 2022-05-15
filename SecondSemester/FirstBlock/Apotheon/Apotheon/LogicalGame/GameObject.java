@@ -1,21 +1,27 @@
 package LogicalGame;
 
-import javafx.scene.Camera;
-
 public abstract class GameObject {
-    // Очки жизни объекта
-    public int heatPoints;
-     // Очки силы объекта
-    public int powerPoints;
 
-    protected GameObject(int heatPoints, int powerPoints) {
-        this.heatPoints = heatPoints;
-        this.powerPoints = powerPoints;
+    protected String name;
+
+
+    protected GameObject() {
     }
 
-    //Каждый объект должен атаковать оппонента
 
-    public void addHealth(int value) {
-        this.heatPoints += value;
+    protected GameObject(String name) {
+        this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public static void startGame() {
+       Menu.mainMenu();
+    }
+    public static void stopGame() {
+        System.exit(0);
+    }
+
 }

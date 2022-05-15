@@ -1,9 +1,10 @@
 package Characters;
 
-import LogicalGame.GameObject;
+import LogicalGame.Character;
 
-public class Demeter extends GameObject {
-    protected Demeter(int heatPoints, int powerPoints) {
-        super(heatPoints, powerPoints);
+public class Demeter extends Character {
+
+    public Demeter() {
+        super("Деметра", 100, 20, 10);
     }
 }

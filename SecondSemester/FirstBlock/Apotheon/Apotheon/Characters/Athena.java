@@ -1,9 +1,10 @@
 package Characters;
 
-import LogicalGame.GameObject;
+import LogicalGame.Character;;
 
-public class Athena extends GameObject {
-    protected Athena(int heatPoints, int powerPoints) {
-        super(heatPoints, powerPoints);
+public class Athena extends Character {
+
+    public Athena() {
+        super("Афина", 100, 20, 30);
     }
 }

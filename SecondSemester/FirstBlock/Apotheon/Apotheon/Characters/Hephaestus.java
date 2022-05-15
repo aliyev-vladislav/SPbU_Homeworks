@@ -1,9 +1,11 @@
 package Characters;
 
-import LogicalGame.GameObject;
+import LogicalGame.Character;
 
-public class Hephaestus extends GameObject {
-    protected Hephaestus(int heatPoints, int powerPoints) {
-        super(heatPoints, powerPoints);
+public class Hephaestus extends Character {
+
+
+    public Hephaestus() {
+        super("Гефест", 100, 20, 10);
     }
 }

@@ -1,9 +1,12 @@
 package Characters;
 
-import LogicalGame.*;
-public class Apollo extends GameObject {
+import LogicalGame.Character;
 
-    protected Apollo(int heatPoints, int powerPoints) {
-        super(heatPoints, powerPoints);
+public class Apollo extends Character {
+
+    public Apollo() {
+
+        super("Аполлон", 100, 10, 10);
+
     }
 }

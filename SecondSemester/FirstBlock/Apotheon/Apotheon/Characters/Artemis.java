@@ -1,9 +1,10 @@
 package Characters;
 
-import LogicalGame.GameObject;
+import LogicalGame.Character;
 
-public class Artemis extends GameObject {
-    protected Artemis(int heatPoints, int powerPoints) {
-        super(heatPoints, powerPoints);
+public class Artemis extends Character {
+
+    public Artemis() {
+        super("Артемида", 100, 20, 30);
     }
 }

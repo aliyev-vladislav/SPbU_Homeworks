@@ -1,10 +1,12 @@
 package Characters;
 
-import LogicalGame.GameObject;
+import LogicalGame.Character;
 
-public class Hades extends GameObject {
+public class Hades extends Character {
 
-    protected Hades(int heatPoints, int powerPoints) {
-        super(heatPoints, powerPoints);
+    public Hades() {
+
+        super("Аид", 100, 20, 10);
+
     }
 }
