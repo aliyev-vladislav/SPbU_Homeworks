@@ -3,7 +3,7 @@ package game;
 import static game.GameObject.startGame;
 
 /**
- * @version 1.0  15 May 2022
+ * @version 1.0  17 May 2022
  * @author Vladislav Aliev
  */
 

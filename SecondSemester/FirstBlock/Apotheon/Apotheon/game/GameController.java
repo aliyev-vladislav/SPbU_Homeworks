@@ -67,7 +67,7 @@ public class GameController extends GameMode {
 
     public static String playerNameInput() {
         while (true) {
-            System.out.print(ANSI_GREEN + "\nНазови имя: " + ANSI_RESET);
+            System.out.print(ANSI_GREEN + "\nПридумай свой ник: " + ANSI_RESET);
             command = scanner.nextLine();
             /*
              * Проверка на доступность выбранного игроком имени,
