@@ -1,24 +1,24 @@
-package LogicalGame;
+package game;
+
+import static game.MenuGame.mainMenu;
 
 public abstract class GameObject {
 
     protected String name;
 
-
     protected GameObject() {
     }
-
 
     protected GameObject(String name) {
         this.name = name;
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
     public static void startGame() {
-       Menu.mainMenu();
+       mainMenu();
     }
     public static void stopGame() {
         System.exit(0);
