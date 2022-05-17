@@ -38,8 +38,7 @@ public class GameController extends GameMode {
 
             framing();
             listCharacter();
-            System.out.println("[ 15 ] - " + Main.ANSI_RED
-                    + "Назад" + Main.ANSI_RESET);
+            System.out.println("[ 15 ] - Назад");
             showInputField();
 
             // Обрабатывается возможность преобразования строки в число
@@ -67,14 +66,14 @@ public class GameController extends GameMode {
 
     public static String playerNameInput() {
         while (true) {
-            System.out.print(ANSI_GREEN + "\nПридумай свой ник: " + ANSI_RESET);
+            System.out.print("\nПридумай свой ник: ");
             command = scanner.nextLine();
             /*
              * Проверка на доступность выбранного игроком имени,
              * оно не должно совпадать с зарезервированным именем ботов.
              */
             if (command.contains("Бот")) {
-                System.out.println(ANSI_RED + "Недопустимое имя, попробуй ещё" + ANSI_RESET);
+                System.out.println("Недопустимое имя, попробуй ещё");
                 continue;
             }
             return command;
@@ -97,10 +96,8 @@ public class GameController extends GameMode {
     }
 
     public static void showMoveOptionsPlayer() {
-        System.out.println("\n[ 1 ] - " + ANSI_YELLOW
-                + "Атаковать" + ANSI_RESET);
-        System.out.println("[ 2 ] - " + ANSI_YELLOW
-                + "Заклинание + Атака" + ANSI_RESET);
+        System.out.println("\n[ 1 ] - Атаковать");
+        System.out.println("[ 2 ] - Заклинание + Атака");
         showInputField();
     }
 
@@ -135,14 +132,11 @@ public class GameController extends GameMode {
     }
 
     public static void showListSpells(Spell spellfirstPlayer) {
-        System.out.println("[ 1 ] - " + ANSI_YELLOW + "Здоровье: "
-                + "+" + spellfirstPlayer.getValueIncreaseHp()
-                + " очков" + ANSI_RESET);
-        System.out.println("[ 2 ] - " + ANSI_YELLOW + "Cила: "
-                + "+" + spellfirstPlayer.getValueIncreaseDamage()
-                + " очков" + ANSI_RESET);
-        System.out.println("[ 3 ] - " + ANSI_YELLOW
-                + "Одноразовый щит" + ANSI_RESET);
+        System.out.println("[ 1 ] - Здоровье: +"
+                + spellfirstPlayer.getValueIncreaseHp() + " очков");
+        System.out.println("[ 2 ] - Cила: +"
+                + spellfirstPlayer.getValueIncreaseDamage() + " очков");
+        System.out.println("[ 3 ] - Одноразовый щит");
         showInputField();
     }
 
@@ -162,7 +156,7 @@ public class GameController extends GameMode {
         // Проверка наличия заклинаний
         if (firstPlayer.getSpellReserve() <= 0) {
             framing();
-            System.out.println(ANSI_RED + "Нет заклинаний!" + ANSI_RESET);
+            System.out.println("Нет заклинаний!");
             movePlayer(firstPlayer, secondPlayer);
         } else {
             while (true) {
@@ -202,13 +196,11 @@ public class GameController extends GameMode {
 
         if (firstPlayer.getPlayerHp() > secondPlayer.getPlayerHp()) {
             framing();
-            System.out.println("Победитель: " + ANSI_YELLOW
-                            + firstPlayer.getNamePlayer() + ANSI_RESET + " \\(★ω★)/");
+            System.out.println("Победитель: " + firstPlayer.getNamePlayer());
             mainMenu();
         } else {
             framing();
-            System.out.println("Победитель: " + ANSI_YELLOW
-                    + secondPlayer.getNamePlayer() + ANSI_RESET + " \\(★ω★)/");
+            System.out.println("Победитель: " + secondPlayer.getNamePlayer());
             mainMenu();
         }
     }

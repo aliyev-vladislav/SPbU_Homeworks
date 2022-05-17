@@ -1,6 +1,5 @@
 package game;
 
-import static game.Main.*;
 import static game.GameController.*;
 
 public class GameMode extends MenuGame {
@@ -9,16 +8,11 @@ public class GameMode extends MenuGame {
 
         do {
             framing();
-            System.out.println(ANSI_CYAN
-                    + "Выбор режима игры" + ANSI_RESET);
-            System.out.println("[ 1 ] - " + ANSI_YELLOW
-                    + "Игрок против игрока" + ANSI_RESET);
-            System.out.println("[ 2 ] - " + ANSI_YELLOW
-                    + "Игрок против бота" + ANSI_RESET);
-            System.out.println("[ 3 ] - " + ANSI_YELLOW
-                    + "Бот против бота" + ANSI_RESET);
-            System.out.println("[ 4 ] - " + ANSI_RED
-                    + "Назад" + ANSI_RESET);
+            System.out.println("Выбор режима игры");
+            System.out.println("[ 1 ] - Игрок против игрока");
+            System.out.println("[ 2 ] - Игрок против бота");
+            System.out.println("[ 3 ] - Бот против бота");
+            System.out.println("[ 4 ] - Назад");
             showInputField();
 
             switch (command) {
