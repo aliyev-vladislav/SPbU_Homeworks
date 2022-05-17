@@ -1,8 +1,7 @@
 package game;
-import java.util.Random;
 
+import java.util.Random;
 import static game.Player.*;
-import static game.Main.*;
 import static game.Spell.*;
 import static game.Status.statusPlayer;
 
