@@ -1,0 +1,1 @@
+start "Test" "gradleCommand.bat"
