@@ -184,7 +184,7 @@ public class Exceptions {
         return arrStr;
     }
 
-    public static Dog covertType(Object animal) {
+    public static Dog convertType(Object animal) {
         System.out.println("#8 Convert a superclass object to " +
                 "a subclass object.");
         Dog result = null;
@@ -204,6 +204,7 @@ public class Exceptions {
             throws InterruptedException {
         MyThread thread = new MyThread("JThread");
         System.out.println("#9 Interrupt a thread during execution.");
+
         thread.start();
         thread.interrupt();
     }
