@@ -29,8 +29,7 @@ class MyThread extends Thread {
 
     // thread in standby mode
     public void run() {
-        System.out.printf("%s started... \n",
-                getName());
+        System.out.printf(getName()+ " started...\n");
         try {
             Thread.sleep(100);
         } catch (InterruptedException exc) {
