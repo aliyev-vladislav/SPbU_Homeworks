@@ -38,6 +38,7 @@ tasks.named('test') {
     testLogging {
         events "passed", "skipped", "failed"
     }
-
-    mainClassName = 'exceptions.Main'
 }
+
+mainClassName = 'exceptions.Main'
+

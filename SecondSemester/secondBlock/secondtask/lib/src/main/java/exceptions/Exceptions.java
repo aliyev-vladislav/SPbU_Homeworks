@@ -86,7 +86,7 @@ public class Exceptions {
             }
         } catch (FileNotFoundException exc) {
             exc.printStackTrace(System.out);
-            System.out.println("Details: "
+            System.out.println("Details: авпвап "
                     + exc.getMessage());
             return false;
         } catch (IOException exc) {
@@ -198,7 +198,6 @@ public class Exceptions {
         System.out.println("Result of the call: " + result);
         return result;
     }
-
 
     public static void startThread()
             throws InterruptedException {
