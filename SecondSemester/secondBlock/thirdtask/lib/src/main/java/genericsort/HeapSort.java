@@ -3,8 +3,14 @@ package genericsort;
 /*
  * Implementation of pyramid sorting
  */
-public class HeapSort <E extends Comparable<E>> {
-    public void sort(E[] arr) {
+public class HeapSort {
+    public static <E extends Comparable<E>> void sort(E[] arr) {
+        for (var item : arr) {
+            if (item == null) {
+                throw new IllegalStateException();
+            }
+        }
+
         int size = arr.length;
 
         // Build heap (regroup an array)
@@ -25,7 +31,7 @@ public class HeapSort <E extends Comparable<E>> {
     }
 
     // A method for converting a subtree to a binary heap with a root node 'node'
-    void heapify (E[] arr, int size, int node) {
+    private static <E extends Comparable<E>> void heapify (E[] arr, int size, int node) {
         int largest = node;
         int left = 2 * node + 1;
         int right = 2 * node + 2;
