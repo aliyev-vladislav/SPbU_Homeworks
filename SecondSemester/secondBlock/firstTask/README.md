@@ -140,7 +140,7 @@
   ```
   Linux и Max OS
   ```sh
-  $ ./gradlew build
+  ./gradlew build
   ```
   <br></br>
   Затем запустите тесты, используя сследующую команду:
@@ -151,7 +151,7 @@
   ```
   Linux и Mac OS
   ```sh
-  $ ./gradlew test
+  ./gradlew test
   ```
   
   <br></br>
@@ -163,7 +163,8 @@
   ```
   Linux и Mac OS
   ```sh
-  $ ./gradlew clean
+  
+  ./gradlew clean
   ```
   
   
