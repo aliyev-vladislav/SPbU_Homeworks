@@ -27,6 +27,7 @@ public class App extends JFrame implements Serializable {
     private final JLabel labelNotesList;
     private final ImageIcon iconSearch;
     private JTextArea noteField;
+    private JTextField headerField;
 
 
     public App() {
@@ -58,7 +59,6 @@ public class App extends JFrame implements Serializable {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 notesList.addItem("Заметка");
-                new Restore();
             }
         });
         newNote.setForeground(Color.yellow);
@@ -69,7 +69,6 @@ public class App extends JFrame implements Serializable {
         logoPanel = new JPanel();
         buttonPanel = new JPanel();
         save = new JButton("Сохранить");
-        save.addActionListener(new Saver());
         delete = new JButton("Удалить");
         labelApp = new JLabel("My Notes");
         save.setForeground(WHITE);
@@ -83,7 +82,7 @@ public class App extends JFrame implements Serializable {
         notePanel.setLayout(new BoxLayout(notePanel, BoxLayout.PAGE_AXIS));
         notePanel.setBackground(Color.darkGray);
 
-        JTextField headerField = new JTextField("Заголовок",13);
+        headerField = new JTextField("Заголовок",13);
         headerField.setMaximumSize(new Dimension(1000, 50));
         headerField.setFont(new Font("TimesRoman", ITALIC, 18));
         headerField.setBackground(Color.WHITE);
@@ -131,33 +130,5 @@ public class App extends JFrame implements Serializable {
                 notesList.getItemAt(notesList.getSelectedIndex());
             }
         });
-    }
-
-    public class Saver implements ActionListener {
-        public void actionPerformed(ActionEvent a) {
-            try {
-                FileWriter fileWriter = new FileWriter("Saved.ser");
-                fileWriter.write(noteField.getText());
-                fileWriter.close();
-            } catch(Exception ex) {ex.printStackTrace();}
-        }
-    }
-
-    public class Restore implements ActionListener {
-        public void actionPerformed(ActionEvent a) {
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader("Saved.ser"));
-                StringBuffer stringBuffer = new StringBuffer();
-                String currentLine;
-
-                while ((currentLine = bufferedReader.readLine()) != null) {
-                    stringBuffer.append(currentLine);
-                }
-
-                bufferedReader.close();
-                newNote.setText(stringBuffer.toString());
-
-            } catch(Exception ex) {ex.printStackTrace();}
-        }
     }
 }
