@@ -168,7 +168,8 @@ public class Frame extends JFrame {
 
             if (headerField.getText().equals("") || headerField.getText() == null) {
                 if (dialog == null)
-                    dialog = new WarningDialog(Frame.this, "Заголовок не может быть пустым");
+                    dialog = new WarningDialog(Frame.this
+                            , "       Заголовок не может быть пустым");
                 dialog.setVisible(true);
                 return;
             }
@@ -188,7 +189,8 @@ public class Frame extends JFrame {
             for (var note : db.getAllNotes()) {
                 if (note.getHeader().equals(headerField.getText())) {
                     if (dialog == null)
-                        dialog = new WarningDialog(Frame.this);
+                        dialog = new WarningDialog(Frame.this,
+                                "Заметка с таким заголовком уже существует");
                     dialog.setVisible(true);
                     return;
                     }
