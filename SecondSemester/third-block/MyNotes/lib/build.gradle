@@ -32,6 +32,7 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:31.0.1-jre'
     implementation 'com.formdev:flatlaf:2.4'
+    implementation 'org.xerial:sqlite-jdbc:3.39.3.0'
 }
 
 tasks.named('test') {
