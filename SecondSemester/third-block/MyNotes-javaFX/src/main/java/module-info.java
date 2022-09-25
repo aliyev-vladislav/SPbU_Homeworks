@@ -4,7 +4,6 @@ module org.openjfx.mynotesjavafx {
     requires java.sql;
     requires org.xerial.sqlitejdbc;
 
-
     opens org.openjfx.mynotesjavafx to javafx.fxml;
     exports org.openjfx.mynotesjavafx;
     exports org.openjfx.mynotesjavafx.controller;

@@ -60,7 +60,7 @@ public class BaseController {
             e.printStackTrace();
         }
         updateListOfNotes();
-        headerField.setText("Заголовок");
+        headerField.setText("Header");
 
         notesList.setOnAction(event -> {
             var choice = notesList.getSelectionModel().getSelectedItem();
@@ -72,8 +72,8 @@ public class BaseController {
 
         newNote.setOnAction(event -> {
             notesList.getSelectionModel().select(0);
-            headerField.setText("Заголовок");
-            noteField.setText("Начните ввод");
+            headerField.setText("Header");
+            noteField.setText("Start typing");
         });
 
 
@@ -81,7 +81,7 @@ public class BaseController {
             if (headerField.getText().equals("") || headerField.getText() == null) {
                 if (dialog == null)
                     dialog = new WarningDialog(Alert.AlertType.WARNING);
-                dialog.showDialog("Заголовок не может быть пустым");
+                dialog.showDialog("The header cannot be empty");
                 return;
             }
 
@@ -101,7 +101,7 @@ public class BaseController {
                 if (note.getHeader().equals(headerField.getText())) {
                     if (dialog == null)
                         dialog = new WarningDialog(Alert.AlertType.WARNING);
-                    dialog.showDialog("Заметка с таким заголовком уже существует");
+                    dialog.showDialog("A note with this header already exists");
                     return;
                 }
             }

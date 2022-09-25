@@ -52,7 +52,7 @@ public class Frame extends JFrame {
         this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS));
         labelNotesList = new JLabel();
         iconSearch = new ImageIcon
-                (new ImageIcon("lib/src/main/resources/images/4194718.png")
+                (new ImageIcon("src/main/resources/images/4194718.png")
                         .getImage()
                         .getScaledInstance(25, 25, Image.SCALE_DEFAULT));
         labelNotesList.setIcon(iconSearch);
@@ -66,7 +66,7 @@ public class Frame extends JFrame {
         notesList.setPreferredSize(new Dimension(150, 30));
         this.updateListOfNotes();
 
-        newNote = new JButton("Новая заметка");
+        newNote = new JButton("New note");
         newNote.addActionListener(new ButtonNewNoteListener());
         newNote.setForeground(YELLOW);
         searchPanel.add(labelNotesList);
@@ -75,10 +75,10 @@ public class Frame extends JFrame {
 
         logoPanel = new JPanel();
         buttonPanel = new JPanel();
-        save = new JButton("Сохранить");
+        save = new JButton("Save");
         save.addActionListener(new ButtonSaveListener());
 
-        delete = new JButton("Удалить");
+        delete = new JButton("Delete");
         delete.addActionListener(new ButtonDeleteListener());
         labelApp = new JLabel("My Notes");
         save.setForeground(WHITE);
@@ -92,7 +92,7 @@ public class Frame extends JFrame {
         notePanel.setLayout(new BoxLayout(notePanel, BoxLayout.PAGE_AXIS));
         notePanel.setBackground(DARK_GRAY);
 
-        headerField = new JTextField("Заголовок",13);
+        headerField = new JTextField("Header",13);
         headerField.setMaximumSize(new Dimension(1000, 50));
         headerField.setFont(new Font("TimesRoman", ITALIC, 18));
         headerField.setBackground(WHITE);
@@ -109,7 +109,7 @@ public class Frame extends JFrame {
         notePanel.add(new JScrollPane(noteField));
 
         ImageIcon icon = new ImageIcon
-                (new ImageIcon("lib/src/main/resources/images/533782.png")
+                (new ImageIcon("src/main/resources/images/533782.png")
                         .getImage()
                         .getScaledInstance(35, 35, Image.SCALE_DEFAULT));
         labelApp.setIcon(icon);
@@ -157,7 +157,7 @@ public class Frame extends JFrame {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             notesList.setSelectedIndex(0);
-            headerField.setText("Заголовок");
+            headerField.setText("Header");
             noteField.setText("");
         }
     }
@@ -169,7 +169,7 @@ public class Frame extends JFrame {
             if (headerField.getText().equals("") || headerField.getText() == null) {
                 if (dialog == null)
                     dialog = new WarningDialog(Frame.this
-                            , "       Заголовок не может быть пустым");
+                            , "       The header cannot be empty");
                 dialog.setVisible(true);
                 return;
             }
@@ -190,7 +190,7 @@ public class Frame extends JFrame {
                 if (note.getHeader().equals(headerField.getText())) {
                     if (dialog == null)
                         dialog = new WarningDialog(Frame.this,
-                                "Заметка с таким заголовком уже существует");
+                                "A note with this header already exists");
                     dialog.setVisible(true);
                     return;
                     }

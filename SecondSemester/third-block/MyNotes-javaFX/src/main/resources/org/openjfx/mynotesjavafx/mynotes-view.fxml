@@ -36,7 +36,7 @@
                   <Image url="@../../../images/4194718.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="notesList" layoutX="68.0" layoutY="18.0" prefWidth="290.0" promptText="Поиск" />
+            <ComboBox fx:id="notesList" layoutX="68.0" layoutY="18.0" prefWidth="290.0" promptText="Search" />
          </children>
       </Pane>
       <Pane fx:id="headerPanel" prefHeight="70.0" prefWidth="400.0">
@@ -46,12 +46,12 @@
                   <Font name="SansSerif Italic" size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="newNote" layoutX="266.0" layoutY="23.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="123.0" style="-fx-background-color: #555555;" text="Новая замтека" textFill="#ffda00" />
+            <Button fx:id="newNote" layoutX="266.0" layoutY="23.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="123.0" style="-fx-background-color: #555555;" text="New note" textFill="#ffda00" />
          </children>
       </Pane>
       <BorderPane fx:id="notePanel" prefHeight="339.0" prefWidth="400.0">
          <center>
-            <TextArea fx:id="noteField" prefHeight="269.0" prefWidth="380.0" text="Начните ввод" wrapText="true" BorderPane.alignment="CENTER">
+            <TextArea fx:id="noteField" prefHeight="269.0" prefWidth="380.0" text="Start typing" wrapText="true" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="20.0" left="10.0" right="10.0" />
                </BorderPane.margin>
@@ -63,8 +63,8 @@
       </BorderPane>
       <Pane fx:id="buttonPanel" prefHeight="52.0" prefWidth="400.0">
          <children>
-            <Button fx:id="save" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Сохранить" textFill="WHITE" />
-            <Button fx:id="delete" layoutX="311.0" layoutY="6.0" mnemonicParsing="false" style="-fx-background-color: #555555;" text="Удалить" textFill="#ff9c9c" />
+            <Button fx:id="save" layoutX="13.0" layoutY="7.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="92.0" style="-fx-background-color: #555555;" text="Save" textFill="WHITE" />
+            <Button fx:id="delete" layoutX="294.0" layoutY="6.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="92.0" style="-fx-background-color: #555555;" text="Delete" textFill="#ff9c9c" />
          </children>
       </Pane>
    </children>

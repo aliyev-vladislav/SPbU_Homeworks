@@ -12,7 +12,7 @@ class WarningDialog extends JDialog {
     public WarningDialog(JFrame frame, String message) {
         super (frame, "Warning", true);
         labelDialog = new JLabel(message);
-        warningIcon = new ImageIcon(new ImageIcon("lib/src/main/resources/images/4344882.png")
+        warningIcon = new ImageIcon(new ImageIcon("src/main/resources/images/4344882.png")
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT));
         labelDialog.setIcon(warningIcon);

@@ -8,7 +8,7 @@ import java.util.*;
 public class DataBase {
 
     // Константа, в которой хранится адрес подключения к БД
-    private static final String  CON_STR = "jdbc:sqlite:lib/sqlite/data/dataApp.db";
+    private static final String  CON_STR = "jdbc:sqlite:sqlite/data/dataApp.db";
 
     /*
      * Используем шаблон одиночка, чтобы не плодить множество
