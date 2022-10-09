@@ -9,7 +9,6 @@ import java.util.*;
 /**
  * controller.CommandProcessor
  * @author Vladislav Aliyev
- * @since 27.11.12
  */
 public class CommandProcessor {
     public static final String MSG_COMMAND_NOT_FOUND = "Command not found";
