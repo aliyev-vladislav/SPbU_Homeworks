@@ -21,7 +21,7 @@ public class CommandParser {
         this.commandsWithArgs = new ArrayList<>();
         this.connectors = new ArrayList<>();
         this.redirection = new ArrayList<>();
-        this.getConnectors().add(" ");
+        this.connectors.add(" ");
         this.pattern = Pattern.compile(".*?(&&|;|\\|\\|)|.*");
         this.matcher = pattern.matcher(line);
         while (matcher.find()) {
@@ -42,7 +42,7 @@ public class CommandParser {
         }
     }
 
-    public String parserWriterOrReader(String commandWithArgs) {
+    public String replaceWriterOrReader(String commandWithArgs) {
         this.pattern = Pattern.compile("(>>|>).+");
         this.matcher = pattern.matcher(commandWithArgs);
         while (matcher.find()) {
@@ -50,12 +50,12 @@ public class CommandParser {
             if (substring.contains(">>")) {
                 commandProcessor.setFileToOverwrite(
                         tempLine = substring.replace(">>", "").trim());
-                commandWithArgs = commandWithArgs.replace(substring, "");
+                commandWithArgs = commandWithArgs.replace(substring, "").trim();
                 redirection.add(">>");
             } else if (substring.contains(">")) {
                 commandProcessor.setFileToWrite(
                         tempLine = substring.replace(">", "").trim());
-                commandWithArgs = commandWithArgs.replace(substring, "");
+                commandWithArgs = commandWithArgs.replace(substring, "").trim();
                 redirection.add(">");
             }
         }
@@ -64,15 +64,12 @@ public class CommandParser {
 
     public void splitCommandWithArgs(String commandWithArgs) {
         Pattern pattern = Pattern.compile("\\s*(\\s)\\s*");
-        String[] parts = pattern.split(commandWithArgs);
-        if (command != null && command.equals("$")) {
-            args = pattern.split(parserWriterOrReader(commandWithArgs));
-        } else if (parts != null) {
-            String[] newParts = pattern.split(parserWriterOrReader(commandWithArgs));
-            command = newParts[0];
+        String[] parts = pattern.split(replaceWriterOrReader(commandWithArgs));
+        if (parts != null) {
+            command = parts[0];
             if (parts.length > 1) {
-                args = new String[newParts.length - 1];
-                System.arraycopy(newParts, 1, args, 0, args.length);
+                args = new String[parts.length - 1];
+                System.arraycopy(parts, 1, args, 0, args.length);
             }
         }
     }

@@ -33,13 +33,14 @@ public class WdCommand implements Command {
     }
 
     public void printData(String fileName) {
+        commandProcessor = CommandProcessor.getInstance();
         try {
             File fileReader = new File(fileName);
             Stream<String> lines = Files.lines(Paths.get(fileName), UTF_8);
             Stream<String> lines2 = Files.lines(Paths.get(fileName), UTF_8);
             long linesCount = lines.count();
             long wordsCount = lines2
-                    .flatMap(s -> Stream.of(s.split("\\w+")).filter(t -> !t.isEmpty()))
+                    .flatMap(s -> Stream.of(s.split("\\W+")).filter(t -> !t.isEmpty()))
                     .count();
             System.out.println(linesCount + " "
                     + wordsCount + " "

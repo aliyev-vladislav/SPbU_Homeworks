@@ -28,6 +28,7 @@ public class CatCommand implements Command {
     }
 
     public void printFile(String file) {
+        commandProcessor = CommandProcessor.getInstance();
         try {
             List<String> lines = Files.readAllLines(Paths.get(file), UTF_8);
             for (String item : lines) {

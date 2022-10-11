@@ -16,7 +16,7 @@ public class LocalVariables {
     }
 
     public void add(String commandWithArgs) {
-        this.pattern = Pattern.compile("\\w+=\\w+");
+        this.pattern = Pattern.compile("[a-zA-Z]+=[^ \\n]+");
         this.matcher = pattern.matcher(commandWithArgs);
         while (matcher.find()) {
             String substring = matcher.group();
@@ -26,7 +26,7 @@ public class LocalVariables {
     }
 
     public String replace(String commandWithArgs) {
-        this.pattern = Pattern.compile("\\$\\w+");
+        this.pattern = Pattern.compile("\\$[a-zA-Z]+");
         this.matcher = pattern.matcher(commandWithArgs);
         while (matcher.find()) {
             String substring = matcher.group();
@@ -42,13 +42,7 @@ public class LocalVariables {
         return commandWithArgs;
     }
 
-    public void findDollar(String commandWithArgs) {
-        Pattern pattern = Pattern.compile("\\s*(\\s)\\s*");
-        String[] parts = pattern.split(commandWithArgs);
-        if (parts != null && parts[0].indexOf("$") == 0) {
-            commandProcessor.getParsedCommand().setCommand("$");
-        } else {
-            commandProcessor.getParsedCommand().setCommand(null);
-        }
+    public TreeMap<String, String> getLocalVariables() {
+        return localVariables;
     }
 }

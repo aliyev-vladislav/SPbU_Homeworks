@@ -43,8 +43,6 @@ public class CommandProcessor {
         commands.put(bash.getName(), bash);
         bash = new RetcodeCommand();
         commands.put(bash.getName(), bash);
-        bash = new DollarCommand();
-        commands.put(bash.getName(), bash);
         bash = new ExitCommand();
         commands.put(bash.getName(), bash);
         bash = new WriterCommand();
@@ -58,12 +56,12 @@ public class CommandProcessor {
     public void execute() {
         Context c = new Context(new File(".").getAbsoluteFile());
         LocalVariables localVariables = new LocalVariables();
-        scripts = new ArrayList<>();
-        boolean result = true;
         Scanner scanner = new Scanner(System.in);
         String input;
+        boolean result = true;
+        scripts = new ArrayList<>();
         do {
-            int count = 0;
+            int count = -1;
              if (scripts.size() > 0) {
                  commandParser = new CommandParser(scripts.get(0));
                  scripts.remove(0);
@@ -74,8 +72,9 @@ public class CommandProcessor {
              }
 
             for (var item : commandParser.getCommandsWithArgs()) {
+                count++;
                 localVariables.add(item);
-                localVariables.findDollar(item);
+
                 commandParser.splitCommandWithArgs(localVariables.replace(item));
                 if (commandParser.getCommand() == null || "".equals(commandParser.getCommand())) {
                     continue;
@@ -97,9 +96,8 @@ public class CommandProcessor {
                 }
                 redirect(c, commandParser.getArgs());
                 result = cmd.execute(c, commandParser.getArgs());
-                count++;
+                System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
             }
-            System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
         } while (result);
     }
 
@@ -147,6 +145,4 @@ public class CommandProcessor {
     public void setFileToOverwrite(String fileToOverwrite) {
         this.fileToOverwrite = fileToOverwrite;
     }
-
-
 }

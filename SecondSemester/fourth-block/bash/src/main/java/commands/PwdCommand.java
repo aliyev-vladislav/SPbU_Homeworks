@@ -12,7 +12,7 @@ public class PwdCommand implements Command {
     @Override
     public boolean execute(Context context, String... args) {
         commandProcessor = CommandProcessor.getInstance();
-        printPwd(context.getCurrentDirectory());
+        print(context.getCurrentDirectory());
         commandProcessor.setRetcode(0);
         return true;
     }
@@ -22,7 +22,7 @@ public class PwdCommand implements Command {
         return "PWD";
     }
 
-    private void printPwd(File dir) {
+    public void print(File dir) {
         File[] files = dir.listFiles();
         if (files != null) {
             for (File f : files) {

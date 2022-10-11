@@ -15,7 +15,6 @@ public class BashCommand implements Command {
     @Override
     public boolean execute(Context context, String... args) {
         commandProcessor = CommandProcessor.getInstance();
-
         if (args != null) {
             for (var item : args) {
                 addScript(item);
@@ -26,7 +25,7 @@ public class BashCommand implements Command {
         return true;
     }
 
-    public void addScript(String fileName) {
+    public boolean addScript(String fileName) {
         File file = new File(fileName);
         if (file.exists()) {
             try {
@@ -37,8 +36,11 @@ public class BashCommand implements Command {
             }
         } else {
             System.out.println("Script not found");
+            return false;
         }
+        return true;
     }
+
     @Override
     public String getName() {
         return "BASH";

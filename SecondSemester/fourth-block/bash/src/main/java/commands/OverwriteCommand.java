@@ -31,7 +31,6 @@ public class OverwriteCommand implements Command {
         return true;
     }
 
-
     @Override
     public String getName() {
         return ">>";

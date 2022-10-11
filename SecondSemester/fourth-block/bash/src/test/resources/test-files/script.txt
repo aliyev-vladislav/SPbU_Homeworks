@@ -1,0 +1,3 @@
+echo 23432 asdf echo asdf
+pwd ; cat script
+exit
