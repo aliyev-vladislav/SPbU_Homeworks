@@ -3,10 +3,6 @@ package view;
 import controller.StateController;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,13 +15,8 @@ public class MainView extends JPanel {
         setLayout(new BorderLayout());
         this.controller = new HashMap<>();
         this.weatherView = new HashMap<>();
-
-        setBackground(new Color(43, 43, 43));
-
-        // MenuBar
         this.selectorWeather = selectorWeather;
 
-        // Refresh button
         JButton refreshButton = new JButton("Update");
         add(refreshButton, BorderLayout.SOUTH);
         refreshButton.addActionListener(e -> {
@@ -33,15 +24,6 @@ public class MainView extends JPanel {
             outputDataFromService(selectorWeather.getSelectedWeather());
             revalidate();
         });
-        refreshButton.setForeground(Color.BLACK);
-        refreshButton.setBackground(Color.WHITE);
-        Border line = new LineBorder(Color.BLACK);
-
-        Border margin = new EmptyBorder(5, 15, 5, 15);
-        Border compound = new CompoundBorder(line, margin);
-        refreshButton.setBorder(compound);
-        refreshButton.setFocusPainted(false);
-        refreshButton.setFont(new Font("Roboto", Font.BOLD, 15));
     }
     public void addService(String name, WeatherView view, StateController controller) {
         this.weatherView.put(name, view);

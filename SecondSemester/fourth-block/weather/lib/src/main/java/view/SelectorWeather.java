@@ -8,7 +8,7 @@ public class SelectorWeather extends JMenuBar {
     private ButtonGroup group;
 
     public SelectorWeather() {
-        this("Services");
+        this("Source");
     }
     public SelectorWeather(String name) {
         sourceMenu = new JMenu(name);
@@ -23,7 +23,6 @@ public class SelectorWeather extends JMenuBar {
         if (sourceMenu.getItemCount() == 1) {
             sourceMenu.getItem(0).setSelected(true);
         }
-
         group.add(newItem);
     }
 
@@ -33,7 +32,6 @@ public class SelectorWeather extends JMenuBar {
                 return sourceMenu.getItem(i).getText();
             }
         }
-
         return null;
     }
 }
