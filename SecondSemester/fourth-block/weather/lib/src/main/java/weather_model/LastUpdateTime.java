@@ -1,9 +1,9 @@
-package time;
+package weather_model;
 
 import java.util.Date;
 
 public class LastUpdateTime {
-    private Date date;
+    private final Date date;
 
     public LastUpdateTime() {
         date = new Date();

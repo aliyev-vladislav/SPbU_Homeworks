@@ -5,6 +5,7 @@ import weather_service.WeatherApiRequest;
 import java.net.URI;
 import java.net.http.HttpRequest;
 import java.time.Duration;
+import java.util.ArrayList;
 
 public class TomorrowWeatherRequest implements WeatherApiRequest {
     private static final String TOMORROW_WEATHER_URL =
@@ -19,6 +20,11 @@ public class TomorrowWeatherRequest implements WeatherApiRequest {
                     "&timesteps=current";
     private static final String TOMORROW_WEATHER_API_KEY = "ZWZZSak7eRZITQ6eMS2wcP9lLTYBAiI2";
     private static final String TOMORROW_WEATHER_UNIT = "metric";
+    private final ArrayList<String> params;
+
+    public TomorrowWeatherRequest(ArrayList<String> params) {
+        this.params = params;
+    }
     @Override
     public HttpRequest createRequest() {
         return HttpRequest.newBuilder()

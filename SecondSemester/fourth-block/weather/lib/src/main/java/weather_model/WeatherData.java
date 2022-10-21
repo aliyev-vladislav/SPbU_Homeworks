@@ -8,7 +8,12 @@ public class WeatherData {
     private String humidity;
     private String windSpeed;
 
-    public WeatherData() {
+    public WeatherData(Object airTemperature,
+                       Object realFeelTemp,
+                       Object cloudCover,
+                       Object pressure,
+                       Object humidity,
+                       Object windSpeed) {
         this.airTemperature = null;
         this.realFeelTemp = null;
         this.cloudCover = null;
@@ -24,7 +29,8 @@ public class WeatherData {
             String pressure,
             String humidity,
             String windSpeed
-    ) {
+    )
+    {
         this.airTemperature = airTemperature;
         this.realFeelTemp = realFeelTemp;
         this.cloudCover = cloudCover;
