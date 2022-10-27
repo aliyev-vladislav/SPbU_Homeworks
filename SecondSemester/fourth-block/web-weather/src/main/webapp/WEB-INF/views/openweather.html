@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenWeather</title>
+</head>
+<body>
+<div>
+    <h2>OpenWeather</h2>
+    <table border="1">
+        <tr>
+            <th>Metric</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Air Temperature, &deg;C</td>
+            <td th:text="${airTemperature}"></td>
+        </tr>
+        <tr>
+            <td>Real feel temp, &deg;C</td>
+            <td th:text="${realFeelTemp}"></td>
+        </tr>
+        <tr>
+            <td>Cloud cover, %</td>
+            <td th:text="${cloudCover}"></td>
+        </tr>
+        <tr>
+            <td>Pressure, gPa</td>
+            <td th:text="${pressure}"></td>
+        </tr>
+        <tr>
+            <td>Humidity, %</td>
+            <td th:text="${humidity}"></td>
+        </tr>
+        <tr>
+            <td>Wind speed, m/s</td>
+            <td th:text="${windSpeed}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
