@@ -6,8 +6,8 @@
 Приложение написано с использованием `Spring Framework`, для GUI выбрана библиотека `Swing`
 
 ### Используемое API:
-+ OpenWeatherMap
-+ Tomorrow.io
++ [OpenWeatherMap](https://openweathermap.org/api)
++ [Tomorrow](https://www.tomorrow.io/weather-api/)
 
 ## Запуск приложения
   Для сборки проекта используется `Gradle Wrapper`. Он содержит bat-скрипты для **Windows** и shell-скрипты для **Mac OS** и **Linux**. 
