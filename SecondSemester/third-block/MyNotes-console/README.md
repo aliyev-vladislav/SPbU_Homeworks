@@ -21,7 +21,7 @@ MyNotes — это консольное приложение для замето
   
   Windows
   ```sh
-  gradlew.bat --console=plain
+  gradlew.bat run --console=plain
   ```
   Linux и Mac OS
   ```sh
