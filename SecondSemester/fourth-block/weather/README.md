@@ -28,7 +28,7 @@
   
   Windows
   ```sh
-  gradlew.bat 
+  gradlew.bat run
   ```
   Linux и Mac OS
   ```sh
