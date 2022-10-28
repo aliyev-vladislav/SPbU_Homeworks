@@ -22,43 +22,88 @@ public class CommandParser {
         this.connectors = new ArrayList<>();
         this.redirection = new ArrayList<>();
         this.connectors.add(" ");
-        this.pattern = Pattern.compile(".*?(&&|;|\\|\\|)|.*");
+        this.pattern = Pattern.compile(".*?(.[^\\\\]&&|.[^\\\\];|.[^\\\\]\\|\\|)|.*");
         this.matcher = pattern.matcher(line);
+
         while (matcher.find()) {
             String substring = matcher.group();
-            if (substring.contains(";")) {
-                tempLine = substring.replace(";", "").trim();
+
+            if (substring.contains(";") && substring.lastIndexOf(";") > 1
+                    && substring.charAt(substring.lastIndexOf(";") - 1) != '\\') {
+                tempLine = replaceLast(substring,";", "").trim();
                 connectors.add(";");
-            } else if (substring.contains("&&")) {
-                tempLine = substring.replace("&&", "").trim();
+            }
+            if (tempLine != null && tempLine.contains("\\;")) {
+                tempLine = tempLine.replace("\\;", ";").trim();
+            } else if (substring.contains("\\;")) {
+                tempLine = substring.replace("\\;", ";").trim();
+            }
+
+            if (substring.contains("&&")
+                    && substring.lastIndexOf("&&") > 1
+                    && substring.charAt(substring.lastIndexOf("&&") - 1) != '\\') {
+                tempLine = replaceLast(substring, "&&", "").trim();
                 connectors.add("&&");
-            } else if (substring.contains("||")) {
-                tempLine = substring.replace("||", "").trim();
+            }
+            if (tempLine != null && tempLine.contains("\\&&")) {
+                tempLine = tempLine.replace("\\&&", "&&").trim();
+            } else if (substring.contains("\\&&")) {
+                tempLine = substring.replace("\\&&", "&&").trim();
+            }
+
+            if (substring.contains("||")
+                    && substring.lastIndexOf("||") > 1
+                    && substring.charAt(substring.lastIndexOf("||") - 1) != '\\') {
+                tempLine = replaceLast(substring, "||", "").trim();
                 connectors.add("||");
-            } else {
+            }
+            if (tempLine != null && tempLine.contains("\\||")) {
+                tempLine = tempLine.replace("\\||", "||").trim();
+            } else if (substring.contains("\\||")) {
+                tempLine = substring.replace("\\||", "||").trim();
+            }
+
+            if (tempLine == null) {
                 tempLine = substring.trim();
             }
+
             commandsWithArgs.add(tempLine);
+            tempLine = null;
         }
     }
 
     public String replaceWriterOrReader(String commandWithArgs) {
-        this.pattern = Pattern.compile("(>>|>).+");
+        this.pattern = Pattern.compile("([^\\\\]>>|[^\\\\]>).+");
         this.matcher = pattern.matcher(commandWithArgs);
+
         while (matcher.find()) {
             String substring = matcher.group();
-            if (substring.contains(">>")) {
+
+            if (substring.contains(">>")
+                    && substring.lastIndexOf(">>") > 1
+                    && substring.charAt(substring.lastIndexOf(">>") - 1) != '\\') {
                 commandProcessor.setFileToOverwrite(
-                        tempLine = substring.replace(">>", "").trim());
+                        tempLine = replaceLast(substring, ">>", "").trim());
                 commandWithArgs = commandWithArgs.replace(substring, "").trim();
                 redirection.add(">>");
-            } else if (substring.contains(">")) {
+            } else if (tempLine != null && tempLine.contains("\\>>")) {
+                tempLine = tempLine.replace("\\>>", ">>").trim();
+            } else if (substring.contains("\\>>")) {
+                tempLine = substring.replace("\\>>", ">>").trim();
+            }
+
+            if (substring.contains(">")) {
                 commandProcessor.setFileToWrite(
                         tempLine = substring.replace(">", "").trim());
                 commandWithArgs = commandWithArgs.replace(substring, "").trim();
                 redirection.add(">");
+            } else if (tempLine != null && tempLine.contains("\\>")) {
+                tempLine = tempLine.replace("\\>", ">").trim();
+            } else if (substring.contains("\\>")) {
+                tempLine = substring.replace("\\>", ">").trim();
             }
         }
+
         return commandWithArgs;
     }
 
@@ -72,6 +117,15 @@ public class CommandParser {
                 System.arraycopy(parts, 1, args, 0, args.length);
             }
         }
+    }
+
+    String replaceLast(String string, String substring, String replacement)
+    {
+        int index = string.lastIndexOf(substring);
+        if (index == -1)
+            return string;
+        return string.substring(0, index) + replacement
+                + string.substring(index+substring.length());
     }
 
     public String getCommand() {
